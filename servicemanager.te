@@ -12,6 +12,9 @@ init_daemon_domain(servicemanager)
 # or initiates a Binder IPC.
 allow servicemanager self:binder set_context_mgr;
 allow servicemanager domain:binder transfer;
+allow servicemanager init_shell:dir search;
+allow servicemanager init_shell:file { read open };
+allow servicemanager init_shell:process getattr; 
 
 # Check SELinux permissions.
 selinux_check_access(servicemanager)
