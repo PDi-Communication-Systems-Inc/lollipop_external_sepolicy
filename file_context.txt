@@ -34,7 +34,7 @@
 /dev/adf[0-9]*		u:object_r:graphics_device:s0
 /dev/adf-interface[0-9]*\.[0-9]*	u:object_r:graphics_device:s0
 /dev/adf-overlay-engine[0-9]*\.[0-9]*	u:object_r:graphics_device:s0
-/dev/alarm		u:object_r:alarm_device:s0
+#/dev/alarm		u:object_r:alarm_device:s0
 /dev/android_adb.*	u:object_r:adb_device:s0
 /dev/ashmem		u:object_r:ashmem_device:s0
 /dev/audio.*		u:object_r:audio_device:s0
@@ -74,7 +74,6 @@
 /dev/random		u:object_r:random_device:s0
 /dev/rpmsg-omx[0-9]	u:object_r:rpmsg_device:s0
 /dev/rproc_user	u:object_r:rpmsg_device:s0
-/dev/rtc0           u:object_r:rtc_device:s0
 /dev/snd(/.*)?		u:object_r:audio_device:s0
 /dev/socket(/.*)?	u:object_r:socket_device:s0
 /dev/socket/adbd	u:object_r:adbd_socket:s0
