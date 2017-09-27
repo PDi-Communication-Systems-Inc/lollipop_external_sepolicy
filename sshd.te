@@ -1,0 +1,39 @@
+type sshd, domain, mlstrustedsubject;
+type sshd_exec, exec_type, file_type;
+
+domain_auto_trans(init, sshd_exec, sshd);
+domain_auto_trans(init_shell, sshd_exec, sshd);
+domain_auto_trans(shell, sshd_exec, sshd)
+domain_auto_trans(dumpstate, sshd_exec, sshd)
+
+net_domain(sshd)
+app_domain(sshd)
+
+permissive sshd;
+
+allow init sshd:process { transition siginh rlimitinh };
+allow init sshd:file *;
+
+dontaudit sshd self:capability_class_set *;
+dontaudit sshd kernel:security *;
+dontaudit sshd kernel:system *;
+dontaudit sshd self:memprotect *;
+dontaudit sshd domain:process *;
+dontaudit sshd domain:fd *;
+dontaudit sshd domain:dir *;
+dontaudit sshd domain:lnk_file *;
+dontaudit sshd domain:{ fifo_file file } *;
+dontaudit sshd domain:socket_class_set *;
+dontaudit sshd domain:ipc_class_set *;
+dontaudit sshd domain:key *;
+dontaudit sshd fs_type:filesystem *;
+dontaudit sshd {fs_type dev_type file_type}:dir_file_class_set *;
+dontaudit sshd node_type:node *;
+dontaudit sshd node_type:{ tcp_socket udp_socket rawip_socket } *;
+dontaudit sshd netif_type:netif *;
+dontaudit sshd port_type:socket_class_set *;
+dontaudit sshd port_type:{ tcp_socket dccp_socket } *;
+dontaudit sshd domain:peer *;
+dontaudit sshd domain:binder *;
+dontaudit sshd property_type:property_service *;
+

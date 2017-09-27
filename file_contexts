@@ -164,6 +164,15 @@
 /system/bin/dex2oat     u:object_r:dex2oat_exec:s0
 # patchoat executable has (essentially) the same requirements as dex2oat.
 /system/bin/patchoat    u:object_r:dex2oat_exec:s0
+# SSHD
+/system/bin/start-ssh	u:object_r:sshd_exec:s0
+/system/bin/init-ssh	u:object_r:sshd_exec:s0
+/system/bin/stop-ssh	u:object_r:sshd_exec:s0
+/system/bin/sshd	u:object_r:sshd_exec:s0
+/system/bin/sftp	u:object_r:sshd_exec:s0
+/system/bin/ssh 	u:object_r:sshd_exec:s0
+/system/bin/ssh-keygen	u:object_r:sshd_exec:s0
+/system/bin/scp		u:object_r:sshd_exec:s0
 
 #############################
 # Vendor files
