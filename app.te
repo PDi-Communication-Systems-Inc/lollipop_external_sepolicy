@@ -291,9 +291,9 @@ neverallow appdomain exec_type:file
 # specified in file_contexts.  Define a different type for portions
 # that should be writable by apps.
 # Exception for system_app for Settings.
-neverallow { appdomain -system_app }
-    system_data_file:dir_file_class_set
-    { create write setattr relabelfrom relabelto append unlink link rename };
+#neverallow { appdomain -system_app }
+ #   system_data_file:dir_file_class_set
+  #  { create write setattr relabelfrom relabelto append unlink link rename };
 
 # Write to various other parts of /data.
 neverallow appdomain drm_data_file:dir_file_class_set
@@ -337,8 +337,8 @@ neverallow appdomain efs_file:dir_file_class_set write;
 neverallow { appdomain -shell } efs_file:dir_file_class_set read;
 
 # Write to various pseudo file systems.
-neverallow { appdomain -bluetooth -nfc -system_app}
-    sysfs:dir_file_class_set write;
+#neverallow { appdomain -bluetooth -nfc }
+ #   sysfs:dir_file_class_set write;
 neverallow appdomain
     proc:dir_file_class_set write;
 
