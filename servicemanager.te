@@ -16,5 +16,10 @@ allow servicemanager init_shell:dir search;
 allow servicemanager init_shell:file { read open };
 allow servicemanager init_shell:process getattr; 
 
+# Following 3 lines allow init.rc to install dolfin, or any other APK we need - JTS 3/17/2021
+allow servicemanager pdi_install_apk:dir { search };
+allow servicemanager pdi_install_apk:file { read open };
+allow servicemanager pdi_install_apk:process { getattr };
+
 # Check SELinux permissions.
 selinux_check_access(servicemanager)

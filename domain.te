@@ -274,6 +274,7 @@ neverallow {
     userdebug_or_eng(`-su')
     -system_server
     -zygote
+    -pdi_install_apk
 } { file_type -system_file -exec_type }:file execute;
 neverallow {
     domain

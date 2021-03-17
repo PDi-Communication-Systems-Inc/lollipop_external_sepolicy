@@ -400,6 +400,9 @@ allow system_server cgroup:dir { remove_name rmdir };
 # /oem access
 r_dir_file(system_server, oemfs)
 
+# PDI allow installation of APKs on first boot - JTS 3/17/2021
+allow system_server pdi_install_apk:binder { call transfer };
+
 ###
 ### Neverallow rules
 ###
